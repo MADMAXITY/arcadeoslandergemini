@@ -11,7 +11,7 @@ export default function Footer() {
               ARCADE<span className="text-accent-green">OS</span>
             </h3>
             <p className="text-text-muted text-sm">
-              © 2024 ArcadeOS. All rights reserved.
+              © 2025 ArcadeOS. All rights reserved.
             </p>
           </div>
 

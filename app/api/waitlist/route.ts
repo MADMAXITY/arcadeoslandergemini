@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if API key is configured
+    console.log('Checking RESEND_API_KEY:', !!process.env.RESEND_API_KEY);
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not configured');
       return NextResponse.json(

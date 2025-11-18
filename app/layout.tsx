@@ -26,15 +26,20 @@ export const metadata: Metadata = {
   },
 };
 
+import SmoothScroll from "@/components/ui/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${rajdhani.variable} ${orbitron.variable} font-sans bg-bg-primary text-text-primary antialiased selection:bg-accent-green selection:text-bg-primary`}>
-        {children}
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body 
+        className={`${inter.variable} ${rajdhani.variable} ${orbitron.variable} font-sans bg-bg-primary text-text-primary antialiased selection:bg-accent-green selection:text-bg-primary`}
+        suppressHydrationWarning
+      >
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
