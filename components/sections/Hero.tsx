@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { CaretDown } from "@phosphor-icons/react";
 import ScrambleText from "@/components/ui/ScrambleText";
+import ParticleBackground from "@/components/ui/ParticleBackground";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,16 +17,13 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section
-      ref={containerRef}
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
-    >
+    <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-bg-primary">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-[url('/media/GTAV.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay" />
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/50 via-bg-primary/80 to-bg-primary" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent-green/10 via-bg-primary to-bg-primary z-0" />
+      <div className="absolute inset-0 bg-[url('/media/grid.svg')] opacity-20 z-0" />
       
-      {/* Grid Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(57,255,20,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(57,255,20,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+      {/* Particles */}
+      <ParticleBackground />
 
       {/* Content */}
       <motion.div 
@@ -51,7 +49,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-orbitron font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 relative"
+            className="font-orbitron font-black text-4xl md:text-7xl lg:text-8xl tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 relative"
             style={{ textShadow: "0 0 30px rgba(57, 255, 20, 0.3)" }}
           >
             <ScrambleText text="THE OS FOR" duration={1500} delay={200} />

@@ -24,7 +24,7 @@ export default function ScrambleText({
 
     const startAnimation = () => {
       setIsAnimating(true);
-      let startTime = Date.now();
+      const startTime = Date.now();
 
       interval = setInterval(() => {
         const elapsedTime = Date.now() - startTime;
