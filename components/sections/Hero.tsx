@@ -80,11 +80,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-inter text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed"
+          className="font-inter text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed px-4"
         >
-          <span className="text-white font-semibold">Admin</span>. <span className="text-white font-semibold">PC</span>. <span className="text-white font-semibold">Mobile</span>.
+          <span className="block mb-2 md:mb-0 md:inline">
+            <span className="text-white font-semibold">Admin</span>. <span className="text-white font-semibold">PC</span>. <span className="text-white font-semibold">Mobile</span>.
+          </span>
           <br className="hidden md:block" />
-          The complete ecosystem. Automate operations. Maximize revenue. Elevate experience.
+          <span className="block">The complete ecosystem. Automate operations. Maximize revenue. Elevate experience.</span>
         </motion.p>
 
         <motion.div
