@@ -32,6 +32,17 @@ const features = [
 ];
 
 export default function Features() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
   return (
     <section id="features" className="py-24 relative bg-bg-secondary overflow-hidden">
       {/* Background Glow */}
@@ -39,9 +50,10 @@ export default function Features() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-20"
         >
           <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">
@@ -52,11 +64,17 @@ export default function Features() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {features.map((feature, index) => (
             <FeatureCard key={index} feature={feature} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -73,12 +91,23 @@ function FeatureCard({ feature, index }: { feature: any; index: number }) {
     });
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 15,
+        mass: 1,
+      } as any,
+    },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      variants={cardVariants}
       onMouseMove={handleMouseMove}
       className="group relative p-8 bg-bg-tertiary rounded-xl border border-white/5 overflow-hidden transition-all duration-300 h-full"
     >

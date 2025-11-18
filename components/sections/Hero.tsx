@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { CaretDown } from "@phosphor-icons/react";
 import ScrambleText from "@/components/ui/ScrambleText";
-import ParticleBackground from "@/components/ui/ParticleBackground";
+import RetroGrid from "@/components/ui/RetroGrid";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,10 +20,9 @@ export default function Hero() {
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-bg-primary">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent-green/10 via-bg-primary to-bg-primary z-0" />
-      <div className="absolute inset-0 bg-[url('/media/grid.svg')] opacity-20 z-0" />
       
-      {/* Particles */}
-      <ParticleBackground />
+      {/* Retro Grid Background */}
+      <RetroGrid />
 
       {/* Content */}
       <motion.div 
@@ -46,40 +45,34 @@ export default function Hero() {
           initial={{ rotateX: 0, rotateY: 0 }}
         >
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ type: "spring", stiffness: 50, damping: 20, mass: 1, delay: 0.2 }}
             className="font-orbitron font-black text-4xl md:text-7xl lg:text-8xl tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 relative"
             style={{ textShadow: "0 0 30px rgba(57, 255, 20, 0.3)" }}
           >
-            <ScrambleText text="THE OS FOR" duration={1500} delay={200} />
+            <ScrambleText text="THE OS FOR" duration={1200} delay={400} />
             <br />
             <span className="text-accent-green relative inline-block mt-2">
-              <ScrambleText text="NEXT-GEN" duration={1500} delay={1000} className="relative z-10" />
+              <ScrambleText text="NEXT-GEN" duration={1200} delay={1000} className="relative z-10" />
               <motion.span
-                className="absolute inset-0 text-accent-green mix-blend-screen blur-sm"
-                animate={{ 
-                  opacity: [0.5, 0.8, 0.5],
-                  scale: [1, 1.02, 1]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "mirror"
-                }}
+                className="absolute inset-0 text-accent-green mix-blend-screen blur-sm opacity-50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.5 }}
+                transition={{ delay: 1.5, duration: 1 }}
               >
                 NEXT-GEN
               </motion.span>
             </span>
             <br />
-            <ScrambleText text="GAMING CENTERS" duration={1500} delay={1800} />
+            <ScrambleText text="GAMING CENTERS" duration={1200} delay={1600} />
           </motion.h1>
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ type: "spring", stiffness: 50, damping: 20, mass: 1, delay: 0.4 }}
           className="font-inter text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed px-4"
         >
           <span className="block mb-2 md:mb-0 md:inline">
@@ -90,9 +83,9 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ type: "spring", stiffness: 50, damping: 20, mass: 1, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a

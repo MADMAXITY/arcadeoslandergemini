@@ -63,20 +63,20 @@ export default function Waitlist() {
           <form onSubmit={handleSubmit} className="relative max-w-md mx-auto">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-accent-green via-accent-blue to-accent-pink rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative flex bg-bg-secondary rounded-lg p-2 border border-white/10">
+              <div className="relative flex flex-col md:flex-row bg-bg-secondary rounded-lg p-2 border border-white/10 gap-2 md:gap-0">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="flex-1 bg-transparent text-white px-4 py-3 focus:outline-none font-inter"
+                  className="flex-1 bg-transparent text-white px-4 py-3 focus:outline-none font-inter w-full"
                   required
                   disabled={status === "loading" || status === "success"}
                 />
                 <button
                   type="submit"
                   disabled={status === "loading" || status === "success"}
-                  className="px-6 py-3 bg-accent-green text-bg-primary font-bold rounded hover:bg-accent-green/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-6 py-3 bg-accent-green text-bg-primary font-bold rounded hover:bg-accent-green/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-full md:w-auto"
                 >
                   {status === "loading" ? (
                     <CircleNotch size={20} className="animate-spin" />

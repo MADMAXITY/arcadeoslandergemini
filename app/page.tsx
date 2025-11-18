@@ -1,6 +1,7 @@
 import Navbar from "@/components/ui/Navbar";
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
+import NetworkBenefits from "@/components/sections/NetworkBenefits";
 import GameShowcase from "@/components/sections/GameShowcase";
 import Stats from "@/components/sections/Stats";
 import Waitlist from "@/components/sections/Waitlist";
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
+      <NetworkBenefits />
       <GameShowcase />
       <Stats />
       <Waitlist />
